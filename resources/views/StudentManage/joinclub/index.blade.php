@@ -19,9 +19,9 @@
                     <td>{{ $e->name }}</td>
                     <td>{{ $e->description }}</td>
                     <td>
-                        <div class="btn-group" role="group" aria-label="Basic example">
+                        {{-- <div class="btn-group" role="group" aria-label="Basic example">
                             <a href="/StudentManage/club/index_Event/{{ $e->id }}" class="btn btn-success">View</a>
-                        </div>
+                        </div> --}}
                         @if ($membership->firstWhere('club_id', $e->id) && $membership->firstWhere('club_id', $e->id)->status == 0)
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <button class="btn btn-primary" disabled>Your already click join and it is pending</button>

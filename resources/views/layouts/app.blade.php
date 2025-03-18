@@ -22,6 +22,7 @@
 
     {{-- Ni kita create external css sendiri ade di public ext.css --}}
     <link rel="stylesheet" href="{{ asset('ext.css') }}">
+    <link rel="stylesheet" href="{{ asset('dycalendar.css') }}">
 </head>
 
 <body>
@@ -53,20 +54,20 @@
                                     {{-- <a class="dropdown-item" href="">Admin</a> --}}
 
                                     @can('isAdmin')
-                                        <a class="dropdown-item" href="/AdminManage/admin">Admin Index</a>
-                                        <a class="dropdown-item" href="/AdminManage/editor">Uniten Club Administrator Index</a>
-                                        <a class="dropdown-item" href="/AdminManage/student">Student Index</a>
-                                        <a class="dropdown-item" href="/AdminManage/club">Club Index</a>
+                                        <a class="dropdown-item" href="/AdminManage/admin">Admin </a>
+                                        <a class="dropdown-item" href="/AdminManage/editor">Club Admin</a>
+                                        <a class="dropdown-item" href="/AdminManage/student">Student </a>
+                                        <a class="dropdown-item" href="/AdminManage/club">Club</a>
                                     @endcan
 
                                     @can('isUser')
-                                        <a class="dropdown-item" href="/StudentManage/joinclub">Club Index</a>
+                                        <a class="dropdown-item" href="/StudentManage/joinclub">Club</a>
                                     @endcan
 
                                     @can('isEditor')
-                                        <a class="dropdown-item" href="/EditorManage/event">Club Index</a>
-                                        <a class="dropdown-item" href="/EditorManage/joinclub">Permission join club </a>
-                                        <a class="dropdown-item" href="/EditorManage/attendance">Permission join event </a>
+                                        <a class="dropdown-item" href="/EditorManage/event">Club</a>
+                                        <a class="dropdown-item" href="/EditorManage/joinclub">Join club </a>
+                                        <a class="dropdown-item" href="/EditorManage/attendance">Join event </a>
                                     @endcan
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -98,6 +99,15 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ asset('dycalendar.js') }}"></script>
+    <script>
+        dycalendar.draw({
+            target: '#dycalendar',
+            type: 'month',
+            highlighttargetdate: true,
+            prevnextbutton: 'show'
+        })
+    </script>
 </body>
 
 </html>
